@@ -63,11 +63,11 @@
           <?php endif; ?>
 
           <?php if(in_array('createCategory', $user_permission) || in_array('updateCategory', $user_permission) || in_array('viewCategory', $user_permission) || in_array('deleteCategory', $user_permission)): ?>
-            <li id="categoryNav">
-              <a href="<?php echo base_url('category/') ?>">
+            <!-- <li id="categoryNav">
+              <a href="<?php echo base_url('#category/') ?>">
                 <i class="fa fa-files-o"></i> <span>Category</span>
               </a>
-            </li>
+            </li> -->
           <?php endif; ?>
 
           <?php if(in_array('createStore', $user_permission) || in_array('updateStore', $user_permission) || in_array('viewStore', $user_permission) || in_array('deleteStore', $user_permission)): ?>
@@ -81,7 +81,7 @@
           <?php if(in_array('createAttribute', $user_permission) || in_array('updateAttribute', $user_permission) || in_array('viewAttribute', $user_permission) || in_array('deleteAttribute', $user_permission)): ?>
           <li id="attributeNav">
             <a href="<?php echo base_url('attributes/') ?>">
-              <i class="fa fa-files-o"></i> <span>Type</span>
+              <i class="fa fa-files-o"></i> <span>Categories</span>
             </a>
           </li>
           <?php endif; ?>
@@ -118,26 +118,26 @@
               </a>
               <ul class="treeview-menu">
                 <?php if(in_array('createOrder', $user_permission)): ?>
-                  <li id="addOrderNav"><a href="<?php echo base_url('#orders/create') ?>"><i class="fa fa-circle-o"></i> Add Order</a></li>
+                  <li id="addOrderNav"><a href="<?php echo base_url('orders/create') ?>"><i class="fa fa-circle-o"></i> Add Order</a></li>
                 <?php endif; ?>
                 <?php if(in_array('updateOrder', $user_permission) || in_array('viewOrder', $user_permission) || in_array('deleteOrder', $user_permission)): ?>
-                <li id="manageOrdersNav"><a href="<?php echo base_url('#orders') ?>"><i class="fa fa-circle-o"></i> Manage Orders</a></li>
+                <li id="manageOrdersNav"><a href="<?php echo base_url('orders') ?>"><i class="fa fa-circle-o"></i> Manage Orders</a></li>
                 <?php endif; ?>
               </ul>
             </li>
           <?php endif; ?>
 
           <?php if(in_array('viewReports', $user_permission)): ?>
-            <li id="reportNav">
+            <!-- <li id="reportNav">
               <a href="<?php echo base_url('#reports/') ?>">
                 <i class="glyphicon glyphicon-stats"></i> <span>Reports</span>
               </a>
-            </li>
+            </li> -->
           <?php endif; ?>
 
 
           <?php if(in_array('updateCompany', $user_permission)): ?>
-            <!-- <li id="companyNav"><a href="<?php echo base_url('#company/') ?>"><i class="fa fa-files-o"></i> <span>Company</span></a></li> -->
+            <li id="companyNav"><a href="<?php echo base_url('company/') ?>"><i class="fa fa-files-o"></i> <span>Company</span></a></li>
           <?php endif; ?>
 
         

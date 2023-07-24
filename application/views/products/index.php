@@ -49,7 +49,7 @@
               <thead>
               <tr>
                 <th>Image</th>
-                <th>SKU</th>
+                <th>Unit</th>
                 <th>Product Name</th>
                 <th>Price</th>
                 <th>Qty</th>

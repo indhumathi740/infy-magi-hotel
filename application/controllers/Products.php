@@ -13,9 +13,9 @@ class Products extends Admin_Controller
 		$this->data['page_title'] = 'Products';
 
 		$this->load->model('model_products');
-		$this->load->model('model_brands');
-		$this->load->model('model_category');
-		$this->load->model('model_stores');
+		// $this->load->model('model_brands');
+		// $this->load->model('model_category');
+		// $this->load->model('model_stores');
 		$this->load->model('model_attributes');
 	}
 
@@ -43,7 +43,7 @@ class Products extends Admin_Controller
 
 		foreach ($data as $key => $value) {
 
-            $store_data = $this->model_stores->getStoresData($value['store_id']);
+            // $store_data = $this->model_stores->getStoresData($value['store_id']);
 			// button
             $buttons = '';
             if(in_array('updateProduct', $this->permission)) {
@@ -97,7 +97,7 @@ class Products extends Admin_Controller
 		$this->form_validation->set_rules('sku', 'SKU', 'trim|required');
 		$this->form_validation->set_rules('price', 'Price', 'trim|required');
 		$this->form_validation->set_rules('qty', 'Qty', 'trim|required');
-        $this->form_validation->set_rules('store', 'Store', 'trim|required');
+        // $this->form_validation->set_rules('store', 'Store', 'trim|required');
 		$this->form_validation->set_rules('availability', 'Availability', 'trim|required');
 		
 	
@@ -113,8 +113,8 @@ class Products extends Admin_Controller
         		'image' => $upload_image,
         		'description' => $this->input->post('description'),
         		'attribute_value_id' => json_encode($this->input->post('attributes_value_id')),
-        		'brand_id' => json_encode($this->input->post('brands')),
-        		'category_id' => json_encode($this->input->post('category')),
+        		// 'brand_id' => json_encode($this->input->post('brands')),
+        		// 'category_id' => json_encode($this->input->post('category')),
                 // 'store_id' => $this->input->post('store'),
         		'availability' => $this->input->post('availability'),
         	);
@@ -145,9 +145,9 @@ class Products extends Admin_Controller
         	}
 
         	$this->data['attributes'] = $attributes_final_data;
-			$this->data['brands'] = $this->model_brands->getActiveBrands();        	
-			$this->data['category'] = $this->model_category->getActiveCategroy();        	
-			$this->data['stores'] = $this->model_stores->getActiveStore();        	
+			// $this->data['brands'] = $this->model_brands->getActiveBrands();        	
+			// $this->data['category'] = $this->model_category->getActiveCategroy();        	
+			// $this->data['stores'] = $this->model_stores->getActiveStore();        	
 
             $this->render_template('products/create', $this->data);
         }	
@@ -204,7 +204,7 @@ class Products extends Admin_Controller
         $this->form_validation->set_rules('sku', 'SKU', 'trim|required');
         $this->form_validation->set_rules('price', 'Price', 'trim|required');
         $this->form_validation->set_rules('qty', 'Qty', 'trim|required');
-        $this->form_validation->set_rules('store', 'Store', 'trim|required');
+        // $this->form_validation->set_rules('store', 'Store', 'trim|required');
         $this->form_validation->set_rules('availability', 'Availability', 'trim|required');
 
         if ($this->form_validation->run() == TRUE) {
@@ -217,8 +217,8 @@ class Products extends Admin_Controller
                 'qty' => $this->input->post('qty'),
                 'description' => $this->input->post('description'),
                 'attribute_value_id' => json_encode($this->input->post('attributes_value_id')),
-                'brand_id' => json_encode($this->input->post('brands')),
-                'category_id' => json_encode($this->input->post('category')),
+                // 'brand_id' => json_encode($this->input->post('brands')),
+                // 'category_id' => json_encode($this->input->post('category')),
                 // 'store_id' => $this->input->post('store'),
                 'availability' => $this->input->post('availability'),
             );
@@ -256,8 +256,8 @@ class Products extends Admin_Controller
             
             // false case
             $this->data['attributes'] = $attributes_final_data;
-            $this->data['brands'] = $this->model_brands->getActiveBrands();         
-            $this->data['category'] = $this->model_category->getActiveCategroy();           
+            // $this->data['brands'] = $this->model_brands->getActiveBrands();         
+            // $this->data['category'] = $this->model_category->getActiveCategroy();           
             // $this->data['stores'] = $this->model_stores->getActiveStore();          
 
             $product_data = $this->model_products->getProductData($product_id);

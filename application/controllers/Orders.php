@@ -15,6 +15,7 @@ class Orders extends Admin_Controller
 		$this->load->model('model_orders');
 		$this->load->model('model_products');
 		$this->load->model('model_company');
+		$this->load->model('model_stores');
 	}
 
 	/* 
@@ -71,13 +72,14 @@ class Orders extends Admin_Controller
 			}
 
 			$result['data'][$key] = array(
-				$value['bill_no'],
-				$value['customer_name'],
-				$value['customer_phone'],
+				// $value['bill_no'],
+				// $value['customer_name'],
+				$value['Branch'],
+				$value['Qty'],
 				$date_time,
-				$count_total_item,
-				$value['net_amount'],
-				$paid_status,
+				// $count_total_item,
+				// $value['net_amount'],
+				// $paid_status,
 				$buttons
 			);
 		} // /foreach
@@ -101,9 +103,13 @@ class Orders extends Admin_Controller
 		$this->form_validation->set_rules('product[]', 'Product name', 'trim|required');
 		
 	
-        if ($this->form_validation->run() == TRUE) {        	
-        	
+        if ($this->form_validation->run() == TRUE) {  
+			$data = array(
+        		'Branch' => $this->input->post('store_id'),
+        		'Qty' => $this->input->post('qty[]'),      	
+        	);
         	$order_id = $this->model_orders->create();
+			
         	
         	if($order_id) {
         		$this->session->set_flashdata('success', 'Successfully created');
@@ -173,7 +179,10 @@ class Orders extends Admin_Controller
 		
 	
         if ($this->form_validation->run() == TRUE) {        	
-        	
+        	$data = array(
+        		'Branch' => $this->input->post('edit_store_id'),
+        		'Qty' => $this->input->post('edit_qty[]'),      	
+        	);
         	$update = $this->model_orders->update($id);
         	
         	if($update == true) {

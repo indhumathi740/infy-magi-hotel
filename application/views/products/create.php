@@ -95,32 +95,32 @@
                   <?php endforeach ?>
                 <?php endif; ?>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="brands">Brands</label>
                   <select class="form-control select_group" id="brands" name="brands[]" multiple="multiple">
                     <?php foreach ($brands as $k => $v): ?>
                       <option value="<?php echo $v['id'] ?>"><?php echo $v['name'] ?></option>
                     <?php endforeach ?>
                   </select>
-                </div>
+                </div> -->
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="category">Category</label>
                   <select class="form-control select_group" id="category" name="category[]" multiple="multiple">
                     <?php foreach ($category as $k => $v): ?>
                       <option value="<?php echo $v['id'] ?>"><?php echo $v['name'] ?></option>
                     <?php endforeach ?>
                   </select>
-                </div>
+                </div> -->
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="store">Store</label>
                   <select class="form-control select_group" id="store" name="store">
                     <?php foreach ($stores as $k => $v): ?>
                       <option value="<?php echo $v['id'] ?>"><?php echo $v['name'] ?></option>
                     <?php endforeach ?>
                   </select>
-                </div>
+                </div> -->
 
                 <div class="form-group">
                   <label for="store">Availability</label>

@@ -65,7 +65,7 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="sku">SKU</label>
+                  <label for="sku">Unit</label>
                   <input type="text" class="form-control" id="sku" name="sku" placeholder="Enter sku" value="<?php echo $product_data['sku']; ?>" autocomplete="off" />
                 </div>
 
@@ -101,7 +101,7 @@
                   <?php endforeach ?>
                 <?php endif; ?>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="brands">Brands</label>
                   <?php $brand_data = json_decode($product_data['brand_id']); ?>
                   <select class="form-control select_group" id="brands" name="brands[]" multiple="multiple">
@@ -109,8 +109,8 @@
                       <option value="<?php echo $v['id'] ?>" <?php if(in_array($v['id'], $brand_data)) { echo 'selected="selected"'; } ?>><?php echo $v['name'] ?></option>
                     <?php endforeach ?>
                   </select>
-                </div>
-
+                </div> -->
+<!-- 
                 <div class="form-group">
                   <label for="category">Category</label>
                   <?php $category_data = json_decode($product_data['category_id']); ?>
@@ -119,16 +119,16 @@
                       <option value="<?php echo $v['id'] ?>" <?php if(in_array($v['id'], $category_data)) { echo 'selected="selected"'; } ?>><?php echo $v['name'] ?></option>
                     <?php endforeach ?>
                   </select>
-                </div>
+                </div> -->
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="store">Store</label>
                   <select class="form-control select_group" id="store" name="store">
                     <?php foreach ($stores as $k => $v): ?>
                       <option value="<?php echo $v['id'] ?>" <?php if($product_data['store_id'] == $v['id']) { echo "selected='selected'"; } ?> ><?php echo $v['name'] ?></option>
                     <?php endforeach ?>
                   </select>
-                </div>
+                </div> -->
 
                 <div class="form-group">
                   <label for="store">Availability</label>
