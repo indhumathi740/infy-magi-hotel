@@ -1,5 +1,3 @@
-
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -48,16 +46,16 @@
             <table id="manageTable" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>Bill no</th>
-                <th>Branch</th>
-                <th>Products</th>
-                <th>Qty</th>
-                
+                <!-- <th>S no</th> -->
+                <!-- <th>Customer Name</th> -->
+                <!-- <th>Customer Phone</th> -->
                 <th>Date Time</th>
-<!--                
+                <th>Total Products</th>
+                <!-- <th>Total Amount</th> -->
+                <!-- <th> status</th> -->
                 <?php if(in_array('updateOrder', $user_permission) || in_array('viewOrder', $user_permission) || in_array('deleteOrder', $user_permission)): ?>
                   <th>Action</th>
-                <?php endif; ?> -->
+                <?php endif; ?>
               </tr>
               </thead>
 

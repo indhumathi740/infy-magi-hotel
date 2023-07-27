@@ -53,14 +53,18 @@
                 <th>Product Name</th>
                 <th>Price</th>
                 <th>Qty</th>
+
+                
                 <!-- <th>Store</th> -->
                 <th>Availability</th>
-                <?php if(in_array('updateProduct', $user_permission) || in_array('deleteProduct', $user_permission)): ?>
+                 <?php if(in_array('updateProduct', $user_permission) || in_array('viewOrder', $user_permission) || in_array('deleteProduct', $user_permission)): ?>
                   <th>Action</th>
                 <?php endif; ?>
+                
+                
               </tr>
               </thead>
-
+               
             </table>
           </div>
           <!-- /.box-body -->
@@ -85,6 +89,7 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">Remove Product</h4>
+        
       </div>
 
       <form role="form" action="<?php echo base_url('products/remove') ?>" method="post" id="removeForm">
@@ -102,6 +107,30 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <?php endif; ?>
+
+  <!-- Modal -->
+  <div class="modal fade modal-xl" id="img-modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-body img-modal-body">
+          <img class="modal-img img-fluid" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var img = document.querySelectorAll(".gal-img");
+    var modal = document.querySelector(".modal-img");
+    var modal = document.querySelector(".test");
+    img.forEach( (imgSrc) => {
+        imgSrc.addEventListener("click", ()=>{
+          var curSrc = imgSrc.getAttribute('src');
+          modal.setAttribute("src", curSrc);
+        });
+    });
+
+  </script>
 
 
 
@@ -166,4 +195,36 @@ function removeFunc(id)
 }
 
 
+</script>
+<!-- Modal -->
+<div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" id="viewModalContent">
+            <!-- Modal content will be loaded here -->
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Handle click event of View button
+        $(document).on('click', '.view-product', function() {
+            var productId = $(this).data('product-id');
+
+            // Load the modal content using AJAX
+            $.ajax({
+                url: '<?php echo base_url("products/view_product/") ?>' + productId,
+                type: 'GET',
+                dataType: 'html',
+                success: function(response) {
+                    // Display the modal with the fetched content
+                    $("#viewModalContent").html(response);
+                    $("#viewModal").modal('show');
+                },
+                error: function(xhr, status, error) {
+                    alert('Error fetching product details.');
+                }
+            });
+        });
+    });
 </script>

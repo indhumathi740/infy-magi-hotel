@@ -6,11 +6,11 @@
     <section class="content-header">
       <h1>
         Manage
-        <small>Groups</small>
+        <small>Roles</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">groups</li>
+        <li class="active">Roles</li>
       </ol>
     </section>
 
@@ -34,7 +34,7 @@
 
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Add Group</h3>
+              <h3 class="box-title">Add Role</h3>
             </div>
             <form role="form" action="<?php base_url('groups/create') ?>" method="post">
               <div class="box-body">
@@ -42,7 +42,7 @@
                 <?php echo validation_errors(); ?>
 
                 <div class="form-group">
-                  <label for="group_name">Group Name</label>
+                  <label for="group_name">Role Name</label>
                   <input type="text" class="form-control" id="group_name" name="group_name" placeholder="Enter group name">
                 </div>
                 <div class="form-group">

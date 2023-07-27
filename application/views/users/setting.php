@@ -123,5 +123,9 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
+<style>
+  .box-body{
+    width: 40vw;
+  }
+</style>
  

@@ -46,6 +46,9 @@ class Products extends Admin_Controller
             // $store_data = $this->model_stores->getStoresData($value['store_id']);
 			// button
             $buttons = '';
+            if (in_array('viewOrder', $this->permission)) {
+            
+            }    
             if(in_array('updateProduct', $this->permission)) {
     			$buttons .= '<a href="'.base_url('products/update/'.$value['id']).'" class="btn btn-default"><i class="fa fa-pencil"></i></a>';
             }
@@ -53,9 +56,9 @@ class Products extends Admin_Controller
             if(in_array('deleteProduct', $this->permission)) { 
     			$buttons .= ' <button type="button" class="btn btn-default" onclick="removeFunc('.$value['id'].')" data-toggle="modal" data-target="#removeModal"><i class="fa fa-trash"></i></button>';
             }
-			
+			$buttons .= ' <a href="' . base_url('products/show/' . $value['id']) . '" class="btn btn-default"><i class="test fa fa-eye"></i> Show</a>';
 
-			$img = '<img src="'.base_url($value['image']).'" alt="'.$value['name'].'" class="img-circle" width="50" height="50" />';
+			$img = '<img src="'.base_url($value['image']).'" alt="'.$value['name'].'" class="gal-img img-circle" width="50" height="50" />';
 
             $availability = ($value['availability'] == 1) ? '<span class="label label-success">Active</span>' : '<span class="label label-warning">Inactive</span>';
 
@@ -77,6 +80,7 @@ class Products extends Admin_Controller
 				$availability,
 				$buttons
 			);
+
 		} // /foreach
 
 		echo json_encode($result);
@@ -297,5 +301,24 @@ class Products extends Admin_Controller
 
         echo json_encode($response);
 	}
+    
+  // application/controllers/Products.php
 
+  public function show($product_id)
+  {
+      if (!is_numeric($product_id)) {
+          redirect('products/', 'refresh');
+      }
+
+      $product_data = $this->model_products->getProductData($product_id);
+
+      if (!$product_data) {
+          // If product data not found, redirect to product listing page
+          redirect('products/', 'refresh');
+      }
+
+      // Load the view to display the product details
+      $this->data['product_data'] = $product_data;
+      $this->render_template('products/show', $this->data);
+  }
 }

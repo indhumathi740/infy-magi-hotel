@@ -185,3 +185,7 @@
 
   });
 </script>
+<style>.box-body{
+  width: 40vw;
+}
+</style>
