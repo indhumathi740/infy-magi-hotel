@@ -19,6 +19,7 @@ class Model_orders extends CI_Model
         $sql = "SELECT * FROM orders ORDER BY id DESC";
         $query = $this->db->query($sql);
         return $query->result_array();
+        
     }
 
     // get the orders item data
@@ -37,6 +38,9 @@ class Model_orders extends CI_Model
     {
         $user_id = $this->session->userdata('id');
         $bill_no = 'BILPR-'.strtoupper(substr(md5(uniqid(mt_rand(), true)), 0, 4));
+        // $store_name = $this->input->post('store');
+        // $store = $this->input->post('store');
+       
         $data = array(
             'bill_no' => $bill_no,
             // 'customer_name' => $this->input->post('customer_name'),
@@ -51,6 +55,9 @@ class Model_orders extends CI_Model
             // 'net_amount' => $this->input->post('net_amount_value'),
             // 'discount' => $this->input->post('discount'),
             'paid_status' => 2,
+            // $store_name = $this->input->post('store'),
+            // 'store_name' => $store_name,
+            'store_name' => 'heloo',
             'user_id' => $user_id
         );
 
@@ -147,7 +154,6 @@ class Model_orders extends CI_Model
                     'order_id' => $id,
                     'product_id' => $this->input->post('product')[$x],
                     'qty' => $this->input->post('qty')[$x],
-					'branch_id' => $this->input->post('store')[$x],
                     // 'rate' => $this->input->post('rate_value')[$x],
                     // 'amount' => $this->input->post('amount_value')[$x],
                 );
@@ -185,5 +191,8 @@ class Model_orders extends CI_Model
         $query = $this->db->query($sql, array(1));
         return $query->num_rows();
     }
+    
+   
+   
 
 }

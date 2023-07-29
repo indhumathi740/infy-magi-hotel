@@ -38,7 +38,7 @@
             <h3 class="box-title">Add Order</h3>
           </div>
           <!-- /.box-header -->
-          <form role="form" action="<?php base_url('orders/create') ?>" method="post" class="form-horizontal">
+          <form role="form" action="<?php echo base_url('orders/create') ?>" method="post" class="form-horizontal">
               <div class="box-body">
 
                 <?php echo validation_errors(); ?>
@@ -81,7 +81,7 @@
                     <tr>
                       <th style="width:50%">Product</th>
                       <th style="width:10%">Qty</th>
-                      <th style="width:10%">Branch</th>
+                      <th style="width:10%">Store Name</th>
                       <th style="width:10%">status</th>
                       <!-- <th style="width:10%">Rate</th> -->
                       <!-- <th style="width:20%">Amount</th> -->
@@ -102,22 +102,22 @@
                         </td>
                         <td><input type="text" name="qty[]" id="qty_1" class="form-control" required onkeyup="getTotal(1)"></td>
                         <td>
-                          <input type="text" class="form-control" id="store_name" name="store_name" placeholder="Enter store name" autocomplete="off">
-                        <!-- <select class="form-control select_group product" data-row-id="row_1" id="store_1" name="store[]" style="width:100%;" onchange="getStoreData(1)" >
-                            <option value=""></option>
-                            <?php foreach ($stores as $k => $v): ?>
-                              <option value="<?php echo $v['id'] ?>"><?php echo $v['name'] ?></option>
-                            <?php endforeach ?>
-                          </select> -->
+                        
+                 
+                        <select class="form-control" id="store" name="store">
+        <option value="">Select a store</option>
+        <?php foreach ($stores as $store): ?>
+            <option value="<?php echo $store['id']; ?>"><?php echo $store['name']; ?></option>
+        <?php endforeach; ?>
+    </select>
+
                         </td>
                         <td>
                         <select class="form-control select_group product" data-row-id="row_1" id="store_1" name="store[]" style="width:100%;" onchange="getStoreData(1)" >
                             <option value="">order created</option>
                             <option value="">In process</option>
                             <option value="">order Received</option>
-                            <?php foreach ($stores as $k => $v): ?>
-                              <option value="<?php echo $v['id'] ?>"><?php echo $v['name'] ?></option>
-                            <?php endforeach ?>
+                            
                           </select>
                         </td>
                         <!-- <td>
@@ -128,7 +128,7 @@
                           <input type="text" name="amount[]" id="amount_1" class="form-control" disabled autocomplete="off">
                           <input type="hidden" name="amount_value[]" id="amount_value_1" class="form-control" autocomplete="off">
                         </td> -->
-                        <td><button type="button" class="btn btn-default" onclick="removeRow('1')"><i class="fa fa-close"></i></button></td>
+                        <td><button type="button" id="add_row" class="btn btn-default"><i class="fa fa-plus"></i></button><button type="button" class="btn btn-default" onclick="removeRow('1')"><i class="fa fa-close"></i></button></td>
                      </tr>
                    </tbody>
                 </table>

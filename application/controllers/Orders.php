@@ -29,6 +29,10 @@ class Orders extends Admin_Controller
         }
 
         $this->data['page_title'] = 'Manage Orders';
+        $this->load->model('model_orders');
+        $this->data['orders'] = $this->model_orders->getOrdersData();
+
+
         $this->render_template('orders/index', $this->data);        
     }
 
@@ -47,6 +51,8 @@ class Orders extends Admin_Controller
             $count_total_item = $this->model_orders->countOrderItem($value['id']);
             $date = date('d-m-Y', $value['date_time']);
             $time = date('h:i a', $value['date_time']);
+            // Fetch the store name from the result array
+        $store_name = isset($value['store_name']) ? $value['store_name'] : '';
 
             $date_time = $date . ' ' . $time;
 
@@ -78,6 +84,7 @@ class Orders extends Admin_Controller
                 // $value['customer_phone'],
                 $date_time,
                 $count_total_item,
+                $store_name,
                 // $value['net_amount'],
                 // $paid_status,
                 $buttons
@@ -106,7 +113,7 @@ class Orders extends Admin_Controller
         if ($this->form_validation->run() == TRUE) {            
             
             $order_id = $this->model_orders->create();
-			$branch_id = $this->model_orders->create();
+			// $branch_id = $this->model_orders->create();
             
             if($order_id) {
                 $this->session->set_flashdata('success', 'Successfully created');
@@ -125,11 +132,12 @@ class Orders extends Admin_Controller
             $this->data['is_service_enabled'] = ($company['service_charge_value'] > 0) ? true : false;
 
             $this->data['products'] = $this->model_products->getActiveProductData(); 
-			 
+            $this->data['stores'] = $this->model_stores->getStoresData(); // Fetch stores data
+        $this->render_template('orders/create', $this->data);
+
 			 
 			     
 
-            $this->render_template('orders/create', $this->data);
         }   
     }
 
@@ -210,9 +218,13 @@ class Orders extends Admin_Controller
 
             $this->data['order_data'] = $result;
 
-            $this->data['products'] = $this->model_products->getActiveProductData();        
-
+            $this->data['products'] = $this->model_products->getActiveProductData();  
+                  
+            $this->data['stores'] = $this->model_stores->getStoresData(); // Fetch stores data
             $this->render_template('orders/edit', $this->data);
+            
+        // // $result = array();
+        // $orders_data = $this->model_orders->getOrdersData($id);
         }
     }
 

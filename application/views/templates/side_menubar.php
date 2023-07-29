@@ -55,11 +55,11 @@
 
 
           <?php if(in_array('createBrand', $user_permission) || in_array('updateBrand', $user_permission) || in_array('viewBrand', $user_permission) || in_array('deleteBrand', $user_permission)): ?>
-            <!-- <li id="brandNav">
-              <a href="<?php echo base_url('#brands/') ?>">
-                <i class="glyphicon glyphicon-tags"></i> <span>Brands</span>
+          <li id="brandNav">
+              <a href="<?php echo base_url('brands/') ?>">
+                <i class="glyphicon glyphicon-tags"></i> <span>Stock</span>
               </a>
-            </li> -->
+            </li> 
           <?php endif; ?>
 
           <?php if(in_array('createCategory', $user_permission) || in_array('updateCategory', $user_permission) || in_array('viewCategory', $user_permission) || in_array('deleteCategory', $user_permission)): ?>

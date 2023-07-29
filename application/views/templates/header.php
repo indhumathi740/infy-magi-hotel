@@ -102,6 +102,24 @@
   .box-width{
     width: 40vw;
   }
+  .show{
+    height: 80dvh;
+  }
+  .show .row{
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .show h4{
+      font-size: 35px !important;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 20px 0;
+    }
+    .pro-img img{
+      width: 100%;
+      height: 100%;
+    }
 </style>
 
 </head>

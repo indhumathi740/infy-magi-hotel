@@ -58,6 +58,7 @@ class Brands extends Admin_Controller
 
 			$result['data'][$key] = array(
 				$value['name'],
+				$value['qty'],
 				$status,
 				$buttons
 			);
@@ -104,7 +105,8 @@ class Brands extends Admin_Controller
         if ($this->form_validation->run() == TRUE) {
         	$data = array(
         		'name' => $this->input->post('brand_name'),
-        		'active' => $this->input->post('active'),	
+				'qty' => $this->input->post('qty'),
+        		'active' => $this->input->post('active')	
         	);
 
         	$create = $this->model_brands->create($data);
@@ -150,7 +152,8 @@ class Brands extends Admin_Controller
 	        if ($this->form_validation->run() == TRUE) {
 	        	$data = array(
 	        		'name' => $this->input->post('edit_brand_name'),
-	        		'active' => $this->input->post('edit_active'),	
+					'qty' => $this->input->post('edit_qty'),
+	        		'active' => $this->input->post('edit_active')	
 	        	);
 
 	        	$update = $this->model_brands->update($data, $id);

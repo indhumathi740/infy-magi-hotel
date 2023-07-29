@@ -51,14 +51,17 @@
                 <!-- <th>Customer Phone</th> -->
                 <th>Date Time</th>
                 <th>Total Products</th>
+                <th>Store Name</th>
+                  <!-- <th>Status</th>  -->
                 <!-- <th>Total Amount</th> -->
                 <!-- <th> status</th> -->
                 <?php if(in_array('updateOrder', $user_permission) || in_array('viewOrder', $user_permission) || in_array('deleteOrder', $user_permission)): ?>
                   <th>Action</th>
                 <?php endif; ?>
+             <!-- <th> status</th>  -->
               </tr>
               </thead>
-
+             
             </table>
           </div>
           <!-- /.box-body -->

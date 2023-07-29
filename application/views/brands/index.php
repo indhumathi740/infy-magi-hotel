@@ -6,11 +6,11 @@
   <section class="content-header">
     <h1>
       Manage
-      <small>Brands</small>
+      <small>Stocks</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Brands</li>
+      <li class="active">Stocks</li>
     </ol>
   </section>
 
@@ -35,20 +35,21 @@
         <?php endif; ?>
 
         <?php if(in_array('createBrand', $user_permission)): ?>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#addBrandModal">Add Brand</button>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#addBrandModal">Add Product</button>
           <br /> <br />
         <?php endif; ?>
 
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title">Manage Brands</h3>
+            <h3 class="box-title">Manage Stock</h3>
           </div>
           <!-- /.box-header -->
           <div class="box-body">
             <table id="manageTable" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>Brand Name</th>
+                <th>Product Name</th>
+                <th>Qty</th>
                 <th>Status</th>
                 <?php if(in_array('updateBrand', $user_permission) || in_array('deleteBrand', $user_permission)): ?>
                   <th>Action</th>
@@ -79,7 +80,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Add Brand</h4>
+        <h4 class="modal-title">Add Product</h4>
       </div>
 
       <form role="form" action="<?php echo base_url('brands/create') ?>" method="post" id="createBrandForm">
@@ -87,8 +88,12 @@
         <div class="modal-body">
 
           <div class="form-group">
-            <label for="brand_name">Brand Name</label>
+            <label for="brand_name">Product Name</label>
             <input type="text" class="form-control" id="brand_name" name="brand_name" placeholder="Enter brand name" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="brand_name">Qty</label>
+            <input type="text" class="form-control" id="qty" name="qty" placeholder="Enter brand name" autocomplete="off">
           </div>
           <div class="form-group">
             <label for="active">Status</label>
@@ -119,7 +124,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Edit Brand</h4>
+        <h4 class="modal-title">Edit Product</h4>
       </div>
 
       <form role="form" action="<?php echo base_url('brands/update') ?>" method="post" id="updateBrandForm">
@@ -128,8 +133,12 @@
           <div id="messages"></div>
 
           <div class="form-group">
-            <label for="edit_brand_name">Brand Name</label>
+            <label for="edit_brand_name">Product Name</label>
             <input type="text" class="form-control" id="edit_brand_name" name="edit_brand_name" placeholder="Enter brand name" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="edit_brand_name">Qty</label>
+            <input type="text" class="form-control" id="edit_qty" name="edit_qty" placeholder="Enter brand name" autocomplete="off">
           </div>
           <div class="form-group">
             <label for="edit_active">Status</label>

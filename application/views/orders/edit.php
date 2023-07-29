@@ -1,3 +1,4 @@
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -104,13 +105,24 @@
                           </td>
                           <td><input type="text" name="qty[]" id="qty_<?php echo $x; ?>" class="form-control" required onkeyup="getTotal(<?php echo $x; ?>)" value="<?php echo $val['qty'] ?>" autocomplete="off"></td>
                           <td>
-                          <select class="form-control select_group product" data-row-id="row_<?php echo $x; ?>" id="store_<?php echo $x; ?>" name="store[]" style="width:100%;" onchange="getStoreData(<?php echo $x; ?>)" >
-                              <option value=""></option>
-                              <?php foreach ($stores as $k => $v): ?>
-                                <option value="<?php echo $v['id'] ?>" <?php if($val['branch_name'] == $v['id']) { echo "selected='selected'"; } ?>><?php echo $v['name'] ?></option>
-                              <?php endforeach ?>
-                            </select>
+                          <select class="form-control" id="store" name="store">
+        <option value="">Select a store</option>
+        <?php foreach ($stores as $store): ?>
+            <option value="<?php echo $store['id']; ?>" <?php echo ($order_data['order']['store_id'] == $store['id']) ? 'selected' : ''; ?>>
+                <?php echo $store['name']; ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+
                           </td>
+                          <td>
+                        <select class="form-control select_group product" data-row-id="row_1" id="store_1" name="store[]" style="width:100%;" onchange="getStoreData(1)" >
+                            <option value="">order created</option>
+                            <option value="">In process</option>
+                            <option value="">order Received</option>
+                            
+                          </select>
+                        </td>
                           <!-- <td>
                             <input type="text" name="rate[]" id="rate_<?php echo $x; ?>" class="form-control" disabled value="<?php echo $val['rate'] ?>" autocomplete="off">
                             <input type="hidden" name="rate_value[]" id="rate_value_<?php echo $x; ?>" class="form-control" value="<?php echo $val['rate'] ?>" autocomplete="off">
@@ -401,7 +413,7 @@
   //     $("#remaining_value").val(remaning.toFixed(2));
   //   }
 
-  // } // /sub total amount
+   } // /sub total amount
 
   function paidAmount() {
     var grandTotal = $("#net_amount_value").val();
