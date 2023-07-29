@@ -52,13 +52,19 @@
                 <th>Date Time</th>
                 <th>Total Products</th>
                 <th>Store Name</th>
+                
                   <!-- <th>Status</th>  -->
                 <!-- <th>Total Amount</th> -->
-                <!-- <th> status</th> -->
+                <!-- <th> Status</th> -->
+                
                 <?php if(in_array('updateOrder', $user_permission) || in_array('viewOrder', $user_permission) || in_array('deleteOrder', $user_permission)): ?>
-                  <th>Action</th>
+                  <th>Status</th>
                 <?php endif; ?>
-             <!-- <th> status</th>  -->
+                
+             <th>Received Qty</th> 
+             <th>Used Qty</th> 
+             <th>Send Qty</th> 
+             <th>Action </th> 
               </tr>
               </thead>
              

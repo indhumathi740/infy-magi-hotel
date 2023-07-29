@@ -84,7 +84,12 @@
                       <th style="width:10%">Qty</th>
                       <!-- <th style="width:10%">Rate</th> -->
                       <!-- <th style="width:20%">Amount</th> -->
-                      <th style="width:10%"><button type="button" id="add_row" class="btn btn-default"><i class="fa fa-plus"></i></button></th>
+                      <th style="width:10%">Store Name</th>
+                      <th style="width:10%">Status</th>
+                      <th style="width:10%">received Quantity</th>
+                      <th style="width:10%">send Quantity</th>
+                      <th style="width:10%">Used Quantity</th>
+                      <!-- <th style="width:10%"><button type="button" id="add_row" class="btn btn-default"><i class="fa fa-plus"></i></button></th> -->
                     </tr>
                   </thead>
 
@@ -105,24 +110,49 @@
                           </td>
                           <td><input type="text" name="qty[]" id="qty_<?php echo $x; ?>" class="form-control" required onkeyup="getTotal(<?php echo $x; ?>)" value="<?php echo $val['qty'] ?>" autocomplete="off"></td>
                           <td>
-                          <select class="form-control" id="store" name="store">
+                          <select class="form-control" id="store_name" name="store_name" required>
+        <option value="">Select Store Name</option>
+        <?php foreach($stores as $store): ?>
+            <option value="<?php echo $store['name']; ?>"><?php echo $store['name']; ?></option>
+        <?php endforeach; ?>
+    </select>
+    <?php echo form_error('store_name', '<p class="text-danger">', '</p>'); ?>
+<!--     
+                           <select class="form-control" id="store" name="store">
         <option value="">Select a store</option>
         <?php foreach ($stores as $store): ?>
             <option value="<?php echo $store['id']; ?>" <?php echo ($order_data['order']['store_id'] == $store['id']) ? 'selected' : ''; ?>>
                 <?php echo $store['name']; ?>
             </option>
         <?php endforeach; ?>
-    </select>
+    </select>  -->
 
                           </td>
+                         
                           <td>
-                        <select class="form-control select_group product" data-row-id="row_1" id="store_1" name="store[]" style="width:100%;" onchange="getStoreData(1)" >
-                            <option value="">order created</option>
-                            <option value="">In process</option>
-                            <option value="">order Received</option>
+                          <select class="form-control " data-row-id="row_1" id="status_name" name="status_name" style="width:100%;" onchange="getStoreData(1)" >
+                            <option value="order created">order created</option>
+                            <option value="order received">order received</option>
+                            <option value="Item send">Item send</option>
+                            <option value="Item Received">item Received</option>
                             
                           </select>
                         </td>
+                        <td>
+                       
+        <input type="text" name="used_qty" id="used_qty" class="form-control" placeholder="Enter customer name">
+        </td>
+        </td>
+                        <td>
+                       
+        <input type="text" name="received_qty" id="received_qty" class="form-control" placeholder="Enter customer name">
+        </td>
+        </td>
+                        <td>
+                       
+        <input type="text" name="send_qty" id="send_qty" class="form-control" placeholder="Enter customer name">
+        </td>
+                        
                           <!-- <td>
                             <input type="text" name="rate[]" id="rate_<?php echo $x; ?>" class="form-control" disabled value="<?php echo $val['rate'] ?>" autocomplete="off">
                             <input type="hidden" name="rate_value[]" id="rate_value_<?php echo $x; ?>" class="form-control" value="<?php echo $val['rate'] ?>" autocomplete="off">
@@ -131,7 +161,7 @@
                             <input type="text" name="amount[]" id="amount_<?php echo $x; ?>" class="form-control" disabled value="<?php echo $val['amount'] ?>" autocomplete="off">
                             <input type="hidden" name="amount_value[]" id="amount_value_<?php echo $x; ?>" class="form-control" value="<?php echo $val['amount'] ?>" autocomplete="off">
                           </td> -->
-                          <td><button type="button" class="btn btn-default" onclick="removeRow('<?php echo $x; ?>')"><i class="fa fa-close"></i></button></td>
+                          <td> <th style="width:10%"><button type="button" id="add_row" class="btn btn-default"><i class="fa fa-plus"></i></button><button type="button" class="btn btn-default" onclick="removeRow('<?php echo $x; ?>')"><i class="fa fa-close"></i></button></td>
                        </tr>
                        <?php $x++; ?>
                      <?php endforeach; ?>

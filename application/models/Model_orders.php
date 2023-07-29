@@ -10,16 +10,16 @@ class Model_orders extends CI_Model
     /* get the orders data */
     public function getOrdersData($id = null)
     {
-        if($id) {
-            $sql = "SELECT * FROM orders WHERE id = ?";
-            $query = $this->db->query($sql, array($id));
+         if($id) {
+             $sql = "SELECT * FROM orders WHERE id = ?";
+             $query = $this->db->query($sql, array($id));
             return $query->row_array();
-        }
+         }
 
         $sql = "SELECT * FROM orders ORDER BY id DESC";
-        $query = $this->db->query($sql);
-        return $query->result_array();
-        
+         $query = $this->db->query($sql);
+         return $query->result_array();
+      
     }
 
     // get the orders item data
@@ -56,8 +56,13 @@ class Model_orders extends CI_Model
             // 'discount' => $this->input->post('discount'),
             'paid_status' => 2,
             // $store_name = $this->input->post('store'),
+            
             // 'store_name' => $store_name,
-            'store_name' => 'heloo',
+            // 'store_name' => 'heloo',
+            'name' => $this->input->post('store_name'),
+            'status' => $this->input->post('status_name'),
+            
+            
             'user_id' => $user_id
         );
 
@@ -118,6 +123,12 @@ class Model_orders extends CI_Model
                 // 'vat_charge' => ($this->input->post('vat_charge_value') > 0) ? $this->input->post('vat_charge_value') : 0,
                 // 'net_amount' => $this->input->post('net_amount_value'),
                 // 'discount' => $this->input->post('discount'),
+                'name' => $this->input->post('store_name'),
+                'status' => $this->input->post('status_name'),
+                'used_qty' => $this->input->post('used_qty'),
+                // 'status' => $this->input->post('status_name'),
+                'send_qty' => $this->input->post('send_qty'),
+            'received_qty' => $this->input->post('received_qty'),
                 'paid_status' => $this->input->post('paid_status'),
                 'user_id' => $user_id
             );

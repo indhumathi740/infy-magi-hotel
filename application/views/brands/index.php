@@ -89,11 +89,11 @@
 
           <div class="form-group">
             <label for="brand_name">Product Name</label>
-            <input type="text" class="form-control" id="brand_name" name="brand_name" placeholder="Enter brand name" autocomplete="off">
+            <input type="text" class="form-control" id="brand_name" name="brand_name" placeholder="Enter Product name" autocomplete="off">
           </div>
           <div class="form-group">
             <label for="brand_name">Qty</label>
-            <input type="text" class="form-control" id="qty" name="qty" placeholder="Enter brand name" autocomplete="off">
+            <input type="text" class="form-control" id="qty" name="qty" placeholder="Enter qty" autocomplete="off">
           </div>
           <div class="form-group">
             <label for="active">Status</label>
@@ -134,11 +134,11 @@
 
           <div class="form-group">
             <label for="edit_brand_name">Product Name</label>
-            <input type="text" class="form-control" id="edit_brand_name" name="edit_brand_name" placeholder="Enter brand name" autocomplete="off">
+            <input type="text" class="form-control" id="edit_brand_name" name="edit_brand_name" placeholder="Enter Product name" autocomplete="off">
           </div>
           <div class="form-group">
             <label for="edit_brand_name">Qty</label>
-            <input type="text" class="form-control" id="edit_qty" name="edit_qty" placeholder="Enter brand name" autocomplete="off">
+            <input type="text" class="form-control" id="edit_qty" name="edit_qty" placeholder="Enter qty" autocomplete="off">
           </div>
           <div class="form-group">
             <label for="edit_active">Status</label>

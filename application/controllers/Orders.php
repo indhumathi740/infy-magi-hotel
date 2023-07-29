@@ -31,6 +31,10 @@ class Orders extends Admin_Controller
         $this->data['page_title'] = 'Manage Orders';
         $this->load->model('model_orders');
         $this->data['orders'] = $this->model_orders->getOrdersData();
+         // Fetch stores data for displaying store details
+    $this->load->model('model_stores');
+    $this->data['stores'] = $this->model_stores->getStoresData();
+
 
 
         $this->render_template('orders/index', $this->data);        
@@ -52,7 +56,8 @@ class Orders extends Admin_Controller
             $date = date('d-m-Y', $value['date_time']);
             $time = date('h:i a', $value['date_time']);
             // Fetch the store name from the result array
-        $store_name = isset($value['store_name']) ? $value['store_name'] : '';
+        $store_name = isset($value['name']) ? $value['name'] : '';
+        $status = isset($value['status']) ? $value['status'] : '';
 
             $date_time = $date . ' ' . $time;
 
@@ -85,6 +90,11 @@ class Orders extends Admin_Controller
                 $date_time,
                 $count_total_item,
                 $store_name,
+                $value['status'],
+                $value['used_qty'],
+                $value['send_qty'],
+                $value['received_qty'],
+
                 // $value['net_amount'],
                 // $paid_status,
                 $buttons
@@ -108,12 +118,17 @@ class Orders extends Admin_Controller
         $this->data['page_title'] = 'Add Order';
 
         $this->form_validation->set_rules('product[]', 'Product name', 'trim|required');
+        $this->form_validation->set_rules('store_name', 'Store name', 'trim|required'); // Add this rule
+
         
     
-        if ($this->form_validation->run() == TRUE) {            
+        if ($this->form_validation->run() == TRUE) {  
+                   
             
             $order_id = $this->model_orders->create();
-			// $branch_id = $this->model_orders->create();
+            
+            
+			
             
             if($order_id) {
                 $this->session->set_flashdata('success', 'Successfully created');
