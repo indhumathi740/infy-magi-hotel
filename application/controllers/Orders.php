@@ -90,6 +90,7 @@ class Orders extends Admin_Controller
                 $date_time,
                 $count_total_item,
                 $store_name,
+                $value['type'],
                 $value['status'],
                 $value['used_qty'],
                 $value['send_qty'],

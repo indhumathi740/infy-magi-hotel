@@ -35,7 +35,7 @@
         <?php endif; ?>
 
         <?php if(in_array('createBrand', $user_permission)): ?>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#addBrandModal">Add Product</button>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#addBrandModal">Add Stock</button>
           <br /> <br />
         <?php endif; ?>
 

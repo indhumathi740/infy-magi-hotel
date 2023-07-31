@@ -10,7 +10,7 @@
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Stores</li>
+      <li class="active">Branches</li>
     </ol>
   </section>
 
@@ -35,7 +35,7 @@
         <?php endif; ?>
 
         <?php if(in_array('createStore', $user_permission)): ?>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add Store</button>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add Branch</button>
           <br /> <br />
         <?php endif; ?>
 
@@ -48,7 +48,7 @@
             <table id="manageTable" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>Store Name</th>
+                <th>Branch Name</th>
                 <th>Address</th>
                 <th>Phone</th>
                 <th>Status</th>
@@ -81,7 +81,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Add Store</h4>
+        <h4 class="modal-title">Add Branch</h4>
       </div>
 
       <form role="form" action="<?php echo base_url('stores/create') ?>" method="post" id="createForm">
@@ -89,7 +89,7 @@
         <div class="modal-body">
 
           <div class="form-group">
-            <label for="brand_name">Store Name</label>
+            <label for="brand_name">Branch Name</label>
             <input type="text" class="form-control" id="store_name" name="store_name" placeholder="Enter store name" autocomplete="off">
           </div>
           <div class="form-group">

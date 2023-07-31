@@ -72,6 +72,7 @@ class Category extends Admin_Controller
 
 			$result['data'][$key] = array(
 				$value['name'],
+				$value['qty'],
 				$status,
 				$buttons
 			);
@@ -102,6 +103,7 @@ class Category extends Admin_Controller
         	$data = array(
         		'name' => $this->input->post('category_name'),
         		'active' => $this->input->post('active'),	
+				'qty' => $this->input->post('qty')	
         	);
 
         	$create = $this->model_category->create($data);
@@ -148,6 +150,7 @@ class Category extends Admin_Controller
 	        	$data = array(
 	        		'name' => $this->input->post('edit_category_name'),
 	        		'active' => $this->input->post('edit_active'),	
+					'qty' => $this->input->post('edit_qty')	
 	        	);
 
 	        	$update = $this->model_category->update($data, $id);

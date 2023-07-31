@@ -60,6 +60,7 @@ class Model_orders extends CI_Model
             // 'store_name' => $store_name,
             // 'store_name' => 'heloo',
             'name' => $this->input->post('store_name'),
+            'type' => $this->input->post('type_name'),
             'status' => $this->input->post('status_name'),
             
             
@@ -125,6 +126,7 @@ class Model_orders extends CI_Model
                 // 'discount' => $this->input->post('discount'),
                 'name' => $this->input->post('store_name'),
                 'status' => $this->input->post('status_name'),
+                'type' => $this->input->post('type_name'),
                 'used_qty' => $this->input->post('used_qty'),
                 // 'status' => $this->input->post('status_name'),
                 'send_qty' => $this->input->post('send_qty'),
@@ -144,6 +146,7 @@ class Model_orders extends CI_Model
             foreach ($get_order_item as $k => $v) {
                 $product_id = $v['product_id'];
                 $qty = $v['qty'];
+                
 				// $branch_id = $v['store_id'];
                 // get the product 
                 $product_data = $this->model_products->getProductData($product_id);

@@ -32,7 +32,8 @@
   <link rel="stylesheet" href="<?php echo base_url('assets/bower_components/select2/dist/css/select2.min.css') ?>">
   <link rel="stylesheet" href="<?php echo base_url('assets/plugins/fileinput/fileinput.min.css') ?>">
   <!--view option-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-3pWE28I2B7z3WuK1lCzQzl4BaLyP4mkj3bUvKGGJZdkXh1Os0WwtkC0VLO6f+15uPiauCAFO0sKcU9UQFXklg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-3pWE28I2B7z3WuK1lCzQzl4BaLyP4mkj3bUvKGGJZdkXh1Os0WwtkC0VLO6f+15uPiauCAFO0sKcU9UQFXklg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- icheck -->
   <!-- iCheck for checkboxes and radio inputs -->
   <link rel="stylesheet" href="<?php echo base_url('assets/plugins/iCheck/all.css') ?>">
@@ -111,7 +112,7 @@
     justify-content: center;
   }
   .show h4{
-      font-size: 35px !important;
+      font-size: 45px !important;
       font-weight: bold;
       text-transform: uppercase;
       padding: 20px 0;

@@ -6,11 +6,11 @@
   <section class="content-header">
     <h1>
       Manage
-      <small>Category</small>
+      <small>Waste</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Category</li>
+      <li class="active">Waste</li>
     </ol>
   </section>
 
@@ -35,24 +35,26 @@
         <?php endif; ?>
 
         <?php if(in_array('createCategory', $user_permission)): ?>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add Category</button>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add Waste</button>
           <br /> <br />
         <?php endif; ?>
 
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title">Manage Categories</h3>
+            <h3 class="box-title">Manage waste</h3>
           </div>
           <!-- /.box-header -->
           <div class="box-body">
             <table id="manageTable" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>Category Name</th>
-                <th>Status</th>
+                <th>product Name</th>
+                <th>Qty</th>
+                 <th>Status</th>
                 <?php if(in_array('updateCategory', $user_permission) || in_array('deleteCategory', $user_permission)): ?>
                   <th>Action</th>
-                <?php endif; ?>
+                <?php endif; ?> 
+               
               </tr>
               </thead>
 
@@ -79,7 +81,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Add Category</h4>
+        <h4 class="modal-title">Add Waste</h4>
       </div>
 
       <form role="form" action="<?php echo base_url('category/create') ?>" method="post" id="createForm">
@@ -87,8 +89,12 @@
         <div class="modal-body">
 
           <div class="form-group">
-            <label for="brand_name">Category Name</label>
+            <label for="brand_name">Product Name</label>
             <input type="text" class="form-control" id="category_name" name="category_name" placeholder="Enter category name" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="brand_name">Qty</label>
+            <input type="text" class="form-control" id="qty" name="qty" placeholder="Enter category name" autocomplete="off">
           </div>
           <div class="form-group">
             <label for="active">Status</label>
@@ -96,7 +102,7 @@
               <option value="1">Active</option>
               <option value="2">Inactive</option>
             </select>
-          </div>
+          </div> 
         </div>
 
         <div class="modal-footer">
@@ -119,7 +125,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Edit Category</h4>
+        <h4 class="modal-title">Edit product</h4>
       </div>
 
       <form role="form" action="<?php echo base_url('category/update') ?>" method="post" id="updateForm">
@@ -129,7 +135,11 @@
 
           <div class="form-group">
             <label for="edit_brand_name">Category Name</label>
-            <input type="text" class="form-control" id="edit_category_name" name="edit_category_name" placeholder="Enter category name" autocomplete="off">
+            <input type="text" class="form-control" id="edit_category_name" name="edit_category_name" placeholder="Enter product name" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="edit_brand_name">Qty</label>
+            <input type="text" class="form-control" id="edit_qty" name="edit_qty" placeholder="Enter product name" autocomplete="off">
           </div>
           <div class="form-group">
             <label for="edit_active">Status</label>
@@ -160,7 +170,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Remove Category</h4>
+        <h4 class="modal-title">Remove Product</h4>
       </div>
 
       <form role="form" action="<?php echo base_url('category/remove') ?>" method="post" id="removeForm">

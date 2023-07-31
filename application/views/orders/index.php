@@ -50,8 +50,10 @@
                 <!-- <th>Customer Name</th> -->
                 <!-- <th>Customer Phone</th> -->
                 <th>Date Time</th>
+                
                 <th>Total Products</th>
-                <th>Store Name</th>
+                <th>Branch Name</th>
+                <th>Type</th>
                 
                   <!-- <th>Status</th>  -->
                 <!-- <th>Total Amount</th> -->

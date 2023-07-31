@@ -42,15 +42,15 @@
               <div class="box-body">
 
                 <?php echo validation_errors(); ?>
-<!-- 
+
                 <div class="form-group">
                   <label for="gross_amount" class="col-sm-12 control-label">Date: <?php echo date('Y-m-d') ?></label>
-                </div> -->
-                <!-- <div class="form-group">
+                </div> 
+                 <div class="form-group">
                   <label for="gross_amount" class="col-sm-12 control-label">Date: <?php echo date('h:i a') ?></label>
-                </div> -->
-
-                <div class="col-md-4 col-xs-12 pull pull-left">
+                </div> 
+<!-- 
+                <div class="col-md-4 col-xs-12 pull pull-left"> -->
 
                   <!-- <div class="form-group">
                     <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Name</label>
@@ -79,10 +79,12 @@
                 <table class="table table-bordered" id="product_info_table">
                   <thead>
                     <tr>
-                      <th style="width:50%">Product</th>
+                      <th style="width:30%">Product</th>
+                      <th style="width:20%">Type</th>
+                      
                       <th style="width:10%">Qty</th>
-                      <th style="width:10%">Store Name</th>
-                      <th style="width:10%">Status</th>
+                      <!-- <th style="width:20%">Store Name</th> -->
+                      <th style="width:20%">Status</th>
                       <!-- <th style="width:10%">Rate</th> -->
                       <!-- <th style="width:20%">Amount</th> -->
                       <!-- <th style="width:10%"><button type="button" id="add_row" class="btn btn-default"><i class="fa fa-plus"></i></button></th> -->
@@ -93,19 +95,28 @@
                    <tbody>
                      <tr id="row_1">
                        <td>
-                        <select class="form-control select_group product" data-row-id="row_1" id="product_1" name="product[]" style="width:100%;" onchange="getProductData(1)" required>
+                        <select class="form-control " data-row-id="row_1" id="product_1" name="product[]" style="width:100%;" onchange="getProductData(1)" required>
                             <option value=""></option>
                             <?php foreach ($products as $k => $v): ?>
                               <option value="<?php echo $v['id'] ?>"><?php echo $v['name'] ?></option>
                             <?php endforeach ?>
                           </select>
                         </td>
-                        <td><input type="text" name="qty[]" id="qty_1" class="form-control" required onkeyup="getTotal(1)"></td>
                         <td>
+                        <select class="form-control " data-row-id="row_1" id="type_name" name="type_name" style="width:100%;" onchange="getStoreData(1)" >
+                            <option value="food">food</option>
+                            <option value="raw material">raw material</option>
+                          
+                            
+                          </select>
+                        </td>
+                        <td><input type="text" name="qty[]" id="qty_1" class="form-control" required onkeyup="getTotal(1)"></td>
+                        
+                        
                       <div class="form-group">
    
-    <select class="form-control" id="store_name" name="store_name" required>
-        <option value="">Select Store Name</option>
+    <select class="form-control-indhu" id="store_name" name="store_name" required>
+        <option value="">Select Branch Name</option>
         <?php foreach($stores as $store): ?>
             <option value="<?php echo $store['name']; ?>"><?php echo $store['name']; ?></option>
         <?php endforeach; ?>
@@ -124,7 +135,7 @@
                         </td>
                         <td>
                         <select class="form-control " data-row-id="row_1" id="status_name" name="status_name" style="width:100%;" onchange="getStoreData(1)" >
-                            <option value="order created">order created</option>
+                           <span class="label-label success"> <option value="order created">order created</option></span>
                             <option value="order received">order received</option>
                             <option value="Item send">Item send</option>
                             <option value="Item Received">item Received</option>
@@ -378,3 +389,10 @@
     subAmount();
   }
 </script>
+<style>
+  .form-group
+  .form-control-indhu{
+    margin-left: 20px;
+  
+  }
+</style>

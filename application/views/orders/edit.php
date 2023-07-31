@@ -81,6 +81,7 @@
                   <thead>
                     <tr>
                       <th style="width:70%">Product</th>
+                      <th style="width:10%">Type</th>
                       <th style="width:10%">Qty</th>
                       <!-- <th style="width:10%">Rate</th> -->
                       <!-- <th style="width:20%">Amount</th> -->
@@ -101,13 +102,21 @@
                         <?php //print_r($v); ?>
                        <tr id="row_<?php echo $x; ?>">
                          <td>
-                          <select class="form-control select_group product" data-row-id="row_<?php echo $x; ?>" id="product_<?php echo $x; ?>" name="product[]" style="width:100%;" onchange="getProductData(<?php echo $x; ?>)" required>
+                          <select class="form-control " data-row-id="row_<?php echo $x; ?>" id="product_<?php echo $x; ?>" name="product[]" style="width:100%;" onchange="getProductData(<?php echo $x; ?>)" required>
                               <option value=""></option>
                               <?php foreach ($products as $k => $v): ?>
                                 <option value="<?php echo $v['id'] ?>" <?php if($val['product_id'] == $v['id']) { echo "selected='selected'"; } ?>><?php echo $v['name'] ?></option>
                               <?php endforeach ?>
                             </select>
                           </td>
+                          <td>
+                        <select class="form-control " data-row-id="row_1" id="type_name" name="type_name" style="width:100%;" onchange="getStoreData(1)" >
+                            <option value="food">food</option>
+                            <option value="raw material">raw material</option>
+                          
+                            
+                          </select>
+                        </td>
                           <td><input type="text" name="qty[]" id="qty_<?php echo $x; ?>" class="form-control" required onkeyup="getTotal(<?php echo $x; ?>)" value="<?php echo $val['qty'] ?>" autocomplete="off"></td>
                           <td>
                           <select class="form-control" id="store_name" name="store_name" required>
@@ -140,17 +149,17 @@
                         </td>
                         <td>
                        
-        <input type="text" name="used_qty" id="used_qty" class="form-control" placeholder="Enter customer name">
+        <input type="text" name="used_qty" id="used_qty" class="form-control" placeholder="Enter qty  value="0" min="0" max="{{order_quantity}}">
         </td>
         </td>
                         <td>
                        
-        <input type="text" name="received_qty" id="received_qty" class="form-control" placeholder="Enter customer name">
+        <input type="text" name="received_qty" id="received_qty" class="form-control" placeholder="Enter qty">
         </td>
         </td>
                         <td>
                        
-        <input type="text" name="send_qty" id="send_qty" class="form-control" placeholder="Enter customer name">
+        <input type="text" name="send_qty" id="send_qty" class="form-control" placeholder="Enter qty">
         </td>
                         
                           <!-- <td>
