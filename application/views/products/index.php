@@ -51,7 +51,9 @@
                 <th>Image</th>
                 <th>Unit</th>
                 <th>Product Name</th>
-                <th>Price</th>
+                <th> <span class="popover-icon" data-toggle="popover" data-content="This price for per unit">Price</span>
+</th>
+  
                 <th>Qty</th>
 
                 
@@ -228,3 +230,23 @@ function removeFunc(id)
         });
     });
 </script>
+<script type="text/javascript">
+  // Initialize popovers
+  $(function () {
+    $('[data-toggle="popover"]').popover();
+  });
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+  // Initialize popovers
+  $(function () {
+    $('[data-toggle="popover"]').popover();
+  });
+</script>
+<style>
+  .popover-icon{
+    width: 100px;
+    height: 100px;
+  }
+</style>

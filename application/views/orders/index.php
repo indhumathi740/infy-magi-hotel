@@ -46,14 +46,17 @@
             <table id="manageTable" class="table table-bordered table-striped">
               <thead>
               <tr>
+              <th>Order ID</th>
+              <th>Type</th>
+           
                 <!-- <th>S no</th> -->
                 <!-- <th>Customer Name</th> -->
                 <!-- <th>Customer Phone</th> -->
-                <th>Date Time</th>
+                <!-- <th>Date Time</th> -->
                 
                 <th>Total Products</th>
                 <th>Branch Name</th>
-                <th>Type</th>
+                
                 
                   <!-- <th>Status</th>  -->
                 <!-- <th>Total Amount</th> -->
@@ -64,7 +67,7 @@
                 <?php endif; ?>
                 
              <th>Received Qty</th> 
-             <th>Used Qty</th> 
+             <!-- <th>Used Qty</th>  -->
              <th>Send Qty</th> 
              <th>Action </th> 
               </tr>

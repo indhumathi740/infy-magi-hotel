@@ -106,6 +106,7 @@
                         <select class="form-control " data-row-id="row_1" id="type_name" name="type_name" style="width:100%;" onchange="getStoreData(1)" >
                             <option value="food">food</option>
                             <option value="raw material">raw material</option>
+                            <option value="food & raw material">food & raw material</option>
                           
                             
                           </select>
@@ -257,6 +258,7 @@
                     '<td><input type="number" name="qty[]" id="qty_'+row_id+'" class="form-control" onkeyup="getTotal('+row_id+')"></td>'+
                     // '<td><input type="text" name="rate[]" id="rate_'+row_id+'" class="form-control" disabled><input type="hidden" name="rate_value[]" id="rate_value_'+row_id+'" class="form-control"></td>'+
                     // '<td><input type="text" name="amount[]" id="amount_'+row_id+'" class="form-control" disabled><input type="hidden" name="amount_value[]" id="amount_value_'+row_id+'" class="form-control"></td>'+
+                    
                     '<td><button type="button" class="btn btn-default" onclick="removeRow(\''+row_id+'\')"><i class="fa fa-close"></i></button></td>'+
                     '</tr>';
 

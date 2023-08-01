@@ -89,7 +89,7 @@
                       <th style="width:10%">Status</th>
                       <th style="width:10%">received Quantity</th>
                       <th style="width:10%">send Quantity</th>
-                      <th style="width:10%">Used Quantity</th>
+                      <!-- <th style="width:10%">Used Quantity</th> -->
                       <!-- <th style="width:10%"><button type="button" id="add_row" class="btn btn-default"><i class="fa fa-plus"></i></button></th> -->
                     </tr>
                   </thead>
@@ -113,6 +113,7 @@
                         <select class="form-control " data-row-id="row_1" id="type_name" name="type_name" style="width:100%;" onchange="getStoreData(1)" >
                             <option value="food">food</option>
                             <option value="raw material">raw material</option>
+                            <option value="food & raw material">food & raw material</option>
                           
                             
                           </select>
@@ -147,10 +148,10 @@
                             
                           </select>
                         </td>
-                        <td>
+                        <!-- <td>
                        
         <input type="text" name="used_qty" id="used_qty" class="form-control" placeholder="Enter qty  value="0" min="0" max="{{order_quantity}}">
-        </td>
+        </td> -->
         </td>
                         <td>
                        

@@ -54,5 +54,12 @@ class Model_brands extends CI_Model
 			return ($delete == true) ? true : false;
 		}
 	}
+	public function countTotalBrands()
+    {
+        $sql = "SELECT COUNT(*) as total_brands FROM brands";
+        $query = $this->db->query($sql);
+        $result = $query->row_array();
 
+        return $result['total_brands'];
+    }
 }

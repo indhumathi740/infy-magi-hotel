@@ -199,14 +199,21 @@ class Model_orders extends CI_Model
         }
     }
 
-    public function countTotalPaidOrders()
-    {
-        $sql = "SELECT * FROM orders WHERE paid_status = ?";
-        $query = $this->db->query($sql, array(1));
-        return $query->num_rows();
-    }
+    // public function countTotalPaidOrders()
+    // {
+    //     $sql = "SELECT * FROM orders
+    //     $query = $this->db->query($sql, array(1));
+    //     return $query->num_rows();
+    // }
     
-   
+    public function countTotalOrders()
+    {
+        $sql = "SELECT COUNT(*) as total_orders FROM orders";
+        $query = $this->db->query($sql);
+        $result = $query->row_array();
+
+        return $result['total_orders'];
+    }
    
 
 }

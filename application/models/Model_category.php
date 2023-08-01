@@ -54,5 +54,12 @@ class Model_category extends CI_Model
 			return ($delete == true) ? true : false;
 		}
 	}
+	public function countTotalCategories()
+    {
+        $sql = "SELECT COUNT(*) as total_categories FROM categories";
+        $query = $this->db->query($sql);
+        $result = $query->row_array();
 
+        return $result['total_categories'];
+    }
 }

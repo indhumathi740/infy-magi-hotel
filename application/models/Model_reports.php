@@ -23,6 +23,7 @@ class Model_reports extends CI_Model
 		$return_data = array();
 		foreach ($result as $k => $v) {
 			$date = date('Y', $v['date_time']);
+			
 			$return_data[] = $date;
 		}
 

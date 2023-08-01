@@ -84,15 +84,17 @@ class Orders extends Admin_Controller
             // }
 
             $result['data'][$key] = array(
+                $value['id'], 
+                $value['type'],
                 // $value['bill_no'],
                 // $value['customer_name'],
                 // $value['customer_phone'],
-                $date_time,
+                // $date_time,
                 $count_total_item,
                 $store_name,
-                $value['type'],
+               
                 $value['status'],
-                $value['used_qty'],
+                // $value['used_qty'],
                 $value['send_qty'],
                 $value['received_qty'],
 

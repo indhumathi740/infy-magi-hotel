@@ -121,6 +121,10 @@
       width: 100%;
       height: 100%;
     }
+    .p-item{
+      font-size: 20px !important;
+      font-weight: 600 !important;
+    }
 </style>
 
 </head>
