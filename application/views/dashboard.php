@@ -6,7 +6,7 @@
     <section class="content-header">
       <h1>
         Dashboard
-        <small>Control panel</small>
+        <!-- <small>Control panel</small> -->
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -111,7 +111,7 @@
                   <p class='p-item'>Total Stocks</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-android-home"></i>
+                <i class="fa-solid fa-boxes-stacked"></i>
                 </div>
                 <a href="<?php echo base_url('brands/') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
@@ -126,7 +126,7 @@
                   <p class="p-item">Total Wastes</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-android-home"></i>
+                <i class="fa-solid fa-dumpster"></i>
                 </div>
                 <a href="<?php echo base_url('category/') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>

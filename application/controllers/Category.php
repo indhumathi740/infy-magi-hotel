@@ -13,6 +13,8 @@ class Category extends Admin_Controller
 		$this->data['page_title'] = 'Category';
 
 		$this->load->model('model_category');
+		$this->load->model('model_stores');
+		// $this->load->model('model_orders');
 	}
 
 	/* 
@@ -24,6 +26,8 @@ class Category extends Admin_Controller
 		if(!in_array('viewCategory', $this->permission)) {
 			redirect('dashboard', 'refresh');
 		}
+		// $this->data['orders'] = $this->model_orders->getOrdersData(); 
+		$this->data['stores'] = $this->model_stores->getStoresData();
 
 		$this->render_template('category/index', $this->data);	
 	}	
@@ -69,8 +73,11 @@ class Category extends Admin_Controller
 				
 
 			$status = ($value['active'] == 1) ? '<span class="label label-success">Active</span>' : '<span class="label label-warning">Inactive</span>';
-
+			$stockCreatedDate = date("d-m-Y", strtotime($value['stock_created_date'])); // Assuming 'stock_created_date' is the field name in the database that stores the stock created date.
 			$result['data'][$key] = array(
+				// $value['name'],
+				// $value['order_id'],
+				$stockCreatedDate,
 				$value['name'],
 				$value['qty'],
 				$status,
@@ -94,16 +101,20 @@ class Category extends Admin_Controller
 
 		$response = array();
 
-		$this->form_validation->set_rules('category_name', 'Category name', 'trim|required');
+		// $this->form_validation->set_rules('category_name', 'Category name', 'trim|required');
 		$this->form_validation->set_rules('active', 'Active', 'trim|required');
 
 		$this->form_validation->set_error_delimiters('<p class="text-danger">','</p>');
 
         if ($this->form_validation->run() == TRUE) {
         	$data = array(
-        		'name' => $this->input->post('category_name'),
-        		'active' => $this->input->post('active'),	
-				'qty' => $this->input->post('qty')	
+        		// 'name' => $this->input->post('category_name'),
+				// 'order_id' => $this->input->post('order_id'),
+				'stock_created_date' => date("Y-m-d "),
+								'name' => $this->input->post('store_name'),
+
+				'qty' => $this->input->post('qty'),
+        		'active' => $this->input->post('active')	
         	);
 
         	$create = $this->model_category->create($data);
@@ -141,16 +152,20 @@ class Category extends Admin_Controller
 		$response = array();
 
 		if($id) {
-			$this->form_validation->set_rules('edit_category_name', 'Category name', 'trim|required');
+			// $this->form_validation->set_rules('edit_category_name', 'Category name', 'trim|required');
 			$this->form_validation->set_rules('edit_active', 'Active', 'trim|required');
 
 			$this->form_validation->set_error_delimiters('<p class="text-danger">','</p>');
 
 	        if ($this->form_validation->run() == TRUE) {
 	        	$data = array(
-	        		'name' => $this->input->post('edit_category_name'),
-	        		'active' => $this->input->post('edit_active'),	
-					'qty' => $this->input->post('edit_qty')	
+					'stock_created_date' => date("Y-m-d "),
+
+					// 'order_id' => $this->input->post('edit_order_id'),
+	        		// 'name' => $this->input->post('edit_category_name'),
+					'qty' => $this->input->post('edit_qty'),	
+	        		'active' => $this->input->post('edit_active')	
+					
 	        	);
 
 	        	$update = $this->model_category->update($data, $id);

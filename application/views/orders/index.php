@@ -1,3 +1,9 @@
+<style>
+  .orderbtn{
+    display: flex;
+    justify-content: end;
+  }
+</style>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -33,7 +39,7 @@
         <?php endif; ?>
 
         <?php if(in_array('createOrder', $user_permission)): ?>
-          <a href="<?php echo base_url('orders/create') ?>" class="btn btn-primary">Add Order</a>
+          <div class="orderbtn"><a href="<?php echo base_url('orders/create') ?>" class="btn btn-primary">Add Order</a></div>
           <br /> <br />
         <?php endif; ?>
 
@@ -66,9 +72,9 @@
                   <th>Status</th>
                 <?php endif; ?>
                 
-             <th>Received Qty</th> 
-             <!-- <th>Used Qty</th>  -->
              <th>Send Qty</th> 
+             <!-- <th>Used Qty</th>  -->
+             <th>Received Qty</th> 
              <th>Action </th> 
               </tr>
               </thead>

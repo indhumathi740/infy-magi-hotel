@@ -1,4 +1,9 @@
-
+<style>
+  .stockbtn{
+    display: flex;
+    justify-content: end;
+  }
+</style>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -16,6 +21,7 @@
 
   <!-- Main content -->
   <section class="content">
+  <div id="currentDate"></div>
     <!-- Small boxes (Stat box) -->
     <div class="row">
       <div class="col-md-12 col-xs-12">
@@ -35,7 +41,7 @@
         <?php endif; ?>
 
         <?php if(in_array('createBrand', $user_permission)): ?>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#addBrandModal">Add Stock</button>
+          <div class="stockbtn"><button class="btn btn-primary" data-toggle="modal" data-target="#addBrandModal">Add Stock</button></div>
           <br /> <br />
         <?php endif; ?>
 
@@ -48,7 +54,10 @@
             <table id="manageTable" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>Product Name</th>
+              <!-- <th>Order ID</th> -->
+              <th>Date and Time</th>
+                <th>Branch Name</th>
+                <!-- <th>Product Name</th> -->
                 <th>Qty</th>
                 <th>Status</th>
                 <?php if(in_array('updateBrand', $user_permission) || in_array('deleteBrand', $user_permission)): ?>
@@ -86,11 +95,31 @@
       <form role="form" action="<?php echo base_url('brands/create') ?>" method="post" id="createBrandForm">
 
         <div class="modal-body">
+        <!-- <div class="form-group">
+  <label for="order_id">Order ID</label>
+  <select class="form-control" id="order_id" name="order_id">
+    <option value="">Select an order</option>
+    <?php foreach ($orders as $order): ?>
+      <option value="<?php echo $order['id']; ?>"><?php echo $order['id']; ?></option>
+    <?php endforeach; ?>
+  </select>
+</div> -->
 
+       <div class="form-group">
+  <label for="order_id">Branch Name</label>
+  <select class="form-control" id="store_name" name="store_name">
+    <option value="">Select an Branch</option>
+    <?php foreach ($stores as $store): ?>
+      <option value="<?php echo $store['name']; ?>"><?php echo $store['name']; ?></option>
+    <?php endforeach; ?>
+  </select>
+</div> 
+
+<!-- 
           <div class="form-group">
             <label for="brand_name">Product Name</label>
             <input type="text" class="form-control" id="brand_name" name="brand_name" placeholder="Enter Product name" autocomplete="off">
-          </div>
+          </div> -->
           <div class="form-group">
             <label for="brand_name">Qty</label>
             <input type="text" class="form-control" id="qty" name="qty" placeholder="Enter qty" autocomplete="off">
@@ -131,11 +160,30 @@
 
         <div class="modal-body">
           <div id="messages"></div>
+          <!-- <div class="form-group">
+  <label for="order_id">Order ID</label>
+  <select class="form-control" id="edit_order_id" name="edit_order_id">
+    <option value="">Select an order</option>
+    <?php foreach ($orders as $order): ?>
+      <option value="<?php echo $order['id']; ?>"><?php echo $order['id']; ?></option>
+    <?php endforeach; ?>
+  </select>
+</div> -->
 
-          <div class="form-group">
+<div class="form-group">
+  <label for="order_id">Branch Name</label>
+  <select class="form-control" id="edit_store_name" name="edit_store_name">
+    <option value="">Select an Branch</option>
+    <?php foreach ($stores as $store): ?>
+      <option value="<?php echo $store['name']; ?>"><?php echo $store['name']; ?></option>
+    <?php endforeach; ?>
+  </select>
+</div> 
+
+          <!-- <div class="form-group">
             <label for="edit_brand_name">Product Name</label>
             <input type="text" class="form-control" id="edit_brand_name" name="edit_brand_name" placeholder="Enter Product name" autocomplete="off">
-          </div>
+          </div> -->
           <div class="form-group">
             <label for="edit_brand_name">Qty</label>
             <input type="text" class="form-control" id="edit_qty" name="edit_qty" placeholder="Enter qty" autocomplete="off">
@@ -375,6 +423,23 @@ function removeBrand(id)
     });
   }
 }
+function updateDateTime() {
+    // Get the current date
+    const now = new Date();
 
+    // Get the date part in YYYY-MM-DD format
+    const formattedDate = now.toISOString().slice(0, 10);
+
+    // Update the HTML element with the formatted date
+    document.getElementById('currentDate').textContent = formattedDate;
+  }
+
+  // Update the date immediately when the page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    updateDateTime();
+
+    // Update the date every second (1000 milliseconds)
+    setInterval(updateDateTime, 1000);
+  });
 
 </script>

@@ -1,12 +1,17 @@
-
+<style>
+  .orderbtn{
+    display: flex;
+    justify-content: end;
+  }
+</style>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Manage
-        <small>Users</small>
+        Manage Users
+       
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -33,7 +38,7 @@
           <?php endif; ?>
           
           <?php if(in_array('createUser', $user_permission)): ?>
-            <a href="<?php echo base_url('users/create') ?>" class="btn btn-primary">Add User</a>
+           <div class="orderbtn"> <a href="<?php echo base_url('users/create') ?>" class="btn addorder_btn btn-primary">Add User</a></div>
             <br /> <br />
           <?php endif; ?>
 

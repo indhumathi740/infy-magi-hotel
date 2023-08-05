@@ -1,4 +1,9 @@
-
+<style>
+  .storebtn{
+    display: flex;
+    justify-content: end;
+  }
+</style>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -35,7 +40,7 @@
         <?php endif; ?>
 
         <?php if(in_array('createStore', $user_permission)): ?>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add Branch</button>
+         <div class="storebtn"> <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add Branch</button></div>
           <br /> <br />
         <?php endif; ?>
 
@@ -90,15 +95,15 @@
 
           <div class="form-group">
             <label for="brand_name">Branch Name</label>
-            <input type="text" class="form-control" id="store_name" name="store_name" placeholder="Enter store name" autocomplete="off">
+            <input type="text" class="form-control" id="store_name" name="store_name" placeholder="Enter Branch name" autocomplete="off">
           </div>
           <div class="form-group">
             <label for="brand_name">Address</label>
-            <input type="text" class="form-control" id="address_name" name="address_name" placeholder="Enter store name" autocomplete="off">
+            <input type="text" class="form-control" id="address_name" name="address_name" placeholder="Enter Address" autocomplete="off">
           </div>
           <div class="form-group">
             <label for="brand_name">Phone</label>
-            <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="Enter store name" autocomplete="off">
+            <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="Enter phone_number" autocomplete="off">
           </div>
           <div class="form-group">
             <label for="active">Status</label>

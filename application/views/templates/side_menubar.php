@@ -129,7 +129,7 @@
 
           <?php if(in_array('viewReports', $user_permission)): ?>
              <li id="reportNav">
-              <a href="<?php echo base_url('reports/') ?>">
+              <a href="../infy-magi-hotel/test.php">
                 <i class="glyphicon glyphicon-stats"></i> <span>Reports</span>
               </a>
             </li>

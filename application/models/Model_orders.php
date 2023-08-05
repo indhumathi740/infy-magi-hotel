@@ -47,6 +47,7 @@ class Model_orders extends CI_Model
             // 'customer_address' => $this->input->post('customer_address'),
             // 'customer_phone' => $this->input->post('customer_phone'),
             'date_time' => strtotime(date('Y-m-d h:i:s a')),
+            'order_date' => date("Y-m-d "),
             // 'gross_amount' => $this->input->post('gross_amount_value'),
             // 'service_charge_rate' => $this->input->post('service_charge_rate'),
             // 'service_charge' => ($this->input->post('service_charge_value') > 0) ?$this->input->post('service_charge_value'):0,
@@ -127,6 +128,7 @@ class Model_orders extends CI_Model
                 'name' => $this->input->post('store_name'),
                 'status' => $this->input->post('status_name'),
                 'type' => $this->input->post('type_name'),
+                'order_date' => date("Y-m-d "),
                 'used_qty' => $this->input->post('used_qty'),
                 // 'status' => $this->input->post('status_name'),
                 'send_qty' => $this->input->post('send_qty'),
@@ -214,6 +216,16 @@ class Model_orders extends CI_Model
 
         return $result['total_orders'];
     }
-   
+    
+    public function getOrderItemsByOrderId($order_id)
+    {
+        if (!$order_id) {
+            return array();
+        }
+
+        $sql = "SELECT * FROM orders_item WHERE order_id = ?";
+        $query = $this->db->query($sql, array($order_id));
+        return $query->result_array();
+    }
 
 }

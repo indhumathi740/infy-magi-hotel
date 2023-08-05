@@ -54,6 +54,7 @@
                       </div>
                   </div>
                 </div>
+    
 
                 <div class="form-group">
                   <label for="product_name">Product name</label>
@@ -185,7 +186,7 @@
 
   });
 </script>
-<style>.box-body{
+<!-- <style>.box-body{
   width: 40vw;
 }
-</style>
+</style> -->

@@ -100,9 +100,9 @@
 <script src="<?php echo base_url('assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') ?>"></script>
 
 <style>
-  .box-width{
+  /* .box-width{
     width: 40vw;
-  }
+  } */
   .show{
     height: 80dvh;
   }
@@ -124,6 +124,16 @@
     .p-item{
       font-size: 20px !important;
       font-weight: 600 !important;
+    }
+    .logo-lg{
+      background-color:#222D32;
+      color: #fff;
+    }
+    .navbar{
+      background-color: #222D32 !important;
+    }
+    .logo{
+      background-color: #222D32 !important;
     }
 </style>
 

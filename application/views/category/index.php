@@ -1,4 +1,9 @@
-
+<style>
+  .wastebtn{
+    display: flex;
+    justify-content: end;
+  }
+</style>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -21,6 +26,8 @@
       <div class="col-md-12 col-xs-12">
 
         <div id="messages"></div>
+        <!-- <div id="currentDateTime"></div> -->
+        <div id="currentDate"></div>
 
         <?php if($this->session->flashdata('success')): ?>
           <div class="alert alert-success alert-dismissible" role="alert">
@@ -35,7 +42,7 @@
         <?php endif; ?>
 
         <?php if(in_array('createCategory', $user_permission)): ?>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add Waste</button>
+          <div class="wastebtn"><button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add Waste</button></div>
           <br /> <br />
         <?php endif; ?>
 
@@ -48,7 +55,10 @@
             <table id="manageTable" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>product Name</th>
+              <th>Date and Time</th>
+              <!-- <th>Order_id</th> -->
+              <th>Branch Name</th>
+                <!-- <th>product Name</th> -->
                 <th>Qty</th>
                  <th>Status</th>
                 <?php if(in_array('updateCategory', $user_permission) || in_array('deleteCategory', $user_permission)): ?>
@@ -87,14 +97,33 @@
       <form role="form" action="<?php echo base_url('category/create') ?>" method="post" id="createForm">
 
         <div class="modal-body">
+        <!-- <div class="form-group">
+  <label for="order_id">Order ID</label>
+  <select class="form-control" id="order_id" name="order_id">
+    <option value="">Select an order</option>
+    <?php foreach ($orders as $order): ?>
+      <option value="<?php echo $order['id']; ?>"><?php echo $order['id']; ?></option>
+    <?php endforeach; ?>
+  </select>
+</div> -->
+<div id="currentDateTime"></div>
+<div class="form-group">
+  <label for="order_id">Branch Name</label>
+  <select class="form-control" id="store_name" name="store_name">
+    <option value="">Select an Branch</option>
+    <?php foreach ($stores as $store): ?>
+      <option value="<?php echo $store['name']; ?>"><?php echo $store['name']; ?></option>
+    <?php endforeach; ?>
+  </select>
+</div> 
 
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="brand_name">Product Name</label>
             <input type="text" class="form-control" id="category_name" name="category_name" placeholder="Enter category name" autocomplete="off">
-          </div>
+          </div> -->
           <div class="form-group">
             <label for="brand_name">Qty</label>
-            <input type="text" class="form-control" id="qty" name="qty" placeholder="Enter category name" autocomplete="off">
+            <input type="text" class="form-control" id="qty" name="qty" placeholder="Enter Qty" autocomplete="off">
           </div>
           <div class="form-group">
             <label for="active">Status</label>
@@ -132,11 +161,30 @@
 
         <div class="modal-body">
           <div id="messages"></div>
-
+<!-- 
           <div class="form-group">
             <label for="edit_brand_name">Category Name</label>
             <input type="text" class="form-control" id="edit_category_name" name="edit_category_name" placeholder="Enter product name" autocomplete="off">
-          </div>
+          </div> -->
+          <!-- <div class="form-group">
+  <label for="order_id">Order ID</label>
+  <select class="form-control" id="edit_order_id" name="edit_order_id">
+    <option value="">Select an order</option>
+    <?php foreach ($orders as $order): ?>
+      <option value="<?php echo $order['id']; ?>"><?php echo $order['id']; ?></option>
+    <?php endforeach; ?>
+  </select>
+</div> -->
+
+<div class="form-group">
+  <label for="order_id">Branch Name</label>
+  <select class="form-control" id="edit_store_name" name="edit_store_name">
+    <option value="">Select an Branch</option>
+    <?php foreach ($stores as $store): ?>
+      <option value="<?php echo $store['name']; ?>"><?php echo $store['name']; ?></option>
+    <?php endforeach; ?>
+  </select>
+</div> 
           <div class="form-group">
             <label for="edit_brand_name">Qty</label>
             <input type="text" class="form-control" id="edit_qty" name="edit_qty" placeholder="Enter product name" autocomplete="off">
@@ -375,6 +423,52 @@ function removeFunc(id)
     });
   }
 }
+// function updateDateTime() {
+//     // Get the current date and time
+//     const now = new Date();
+  
+//     // Format the date and time as desired
+//     const formattedDateTime = now.toLocaleString(); // You can customize the format as needed
+  
+//     // Update the HTML element with the formatted date and time
+//     document.getElementById('currentDateTime').textContent = formattedDateTime;
+//   }
+  
+//   // Update the date and time immediately when the page loads
+//   document.addEventListener('DOMContentLoaded', function() {
+//     updateDateTime();
+  
+//     // Update the date and time every second (1000 milliseconds)
+//     setInterval(updateDateTime, 1000);
+//   });
+function updateDateTime() {
+    // Get the current date
+    const now = new Date();
+
+    // Get the date part in YYYY-MM-DD format
+    const formattedDate = now.toISOString().slice(0, 10);
+
+    // Update the HTML element with the formatted date
+    document.getElementById('currentDate').textContent = formattedDate;
+  }
+
+  // Update the date immediately when the page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    updateDateTime();
+
+    // Update the date every second (1000 milliseconds)
+    setInterval(updateDateTime, 1000);
+  });
+
+
+
+
+
 
 
 </script>
+<!-- Add jQuery to your HTML -->
+
+
+
+

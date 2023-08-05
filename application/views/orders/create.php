@@ -14,6 +14,7 @@
 
   <!-- Main content -->
   <section class="content">
+  <div id="currentDate"></div>
     <!-- Small boxes (Stat box) -->
     <div class="row">
       <div class="col-md-12 col-xs-12">
@@ -43,12 +44,12 @@
 
                 <?php echo validation_errors(); ?>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="gross_amount" class="col-sm-12 control-label">Date: <?php echo date('Y-m-d') ?></label>
                 </div> 
                  <div class="form-group">
                   <label for="gross_amount" class="col-sm-12 control-label">Date: <?php echo date('h:i a') ?></label>
-                </div> 
+                </div>  -->
 <!-- 
                 <div class="col-md-4 col-xs-12 pull pull-left"> -->
 
@@ -79,6 +80,7 @@
                 <table class="table table-bordered" id="product_info_table">
                   <thead>
                     <tr>
+                      
                       <th style="width:30%">Product</th>
                       <th style="width:20%">Type</th>
                       
@@ -115,8 +117,10 @@
                         
                         
                       <div class="form-group">
+                 
    
     <select class="form-control-indhu" id="store_name" name="store_name" required>
+      
         <option value="">Select Branch Name</option>
         <?php foreach($stores as $store): ?>
             <option value="<?php echo $store['name']; ?>"><?php echo $store['name']; ?></option>
@@ -390,11 +394,31 @@
     $("#product_info_table tbody tr#row_"+tr_id).remove();
     subAmount();
   }
+  function updateDateTime() {
+    // Get the current date
+    const now = new Date();
+
+    // Get the date part in YYYY-MM-DD format
+    const formattedDate = now.toISOString().slice(0, 10);
+
+    // Update the HTML element with the formatted date
+    document.getElementById('currentDate').textContent = formattedDate;
+  }
+
+  // Update the date immediately when the page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    updateDateTime();
+
+    // Update the date every second (1000 milliseconds)
+    setInterval(updateDateTime, 1000);
+  });
 </script>
 <style>
   .form-group
   .form-control-indhu{
     margin-left: 20px;
+    width: 150px;
+    
   
   }
 </style>

@@ -1,4 +1,7 @@
-<header class="main-header">
+<style>
+    
+  </style>
+<header class="main-header main-hd">
     <!-- Logo -->
     <a href="" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -16,4 +19,4 @@
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
-  
+ 

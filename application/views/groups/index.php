@@ -1,4 +1,9 @@
-
+<style>
+  .rolesbtn{
+    display: flex;
+    justify-content: end;
+  }
+</style>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -33,7 +38,7 @@
           <?php endif; ?>
 
           <?php if(in_array('createGroup', $user_permission)): ?>
-            <a href="<?php echo base_url('groups/create') ?>" class="btn btn-primary">Add Role</a>
+            <div class="rolesbtn"> <a href="<?php echo base_url('groups/create') ?>" class="btn btn-primary">Add Role</a></div>
             <br /> <br />
           <?php endif; ?>
 

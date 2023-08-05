@@ -35,7 +35,7 @@ class Orders extends Admin_Controller
     $this->load->model('model_stores');
     $this->data['stores'] = $this->model_stores->getStoresData();
 
-
+    
 
         $this->render_template('orders/index', $this->data);        
     }
@@ -130,12 +130,17 @@ class Orders extends Admin_Controller
             
             $order_id = $this->model_orders->create();
             
+           
             
 			
             
+            // if($order_id) {
+            //     $this->session->set_flashdata('success', 'Successfully created');
+            //     redirect('orders/update/'.$order_id, 'refresh');
+            // }
             if($order_id) {
                 $this->session->set_flashdata('success', 'Successfully created');
-                redirect('orders/update/'.$order_id, 'refresh');
+                redirect('orders/', 'refresh'); // Redirect to the "Manage Orders" page
             }
             else {
                 $this->session->set_flashdata('errors', 'Error occurred!!');
@@ -208,10 +213,14 @@ class Orders extends Admin_Controller
             
             $update = $this->model_orders->update($id);
             
+            // if($update == true) {
+            //     $this->session->set_flashdata('success', 'Successfully updated');
+            //     redirect('orders/update/'.$id, 'refresh');
             if($update == true) {
                 $this->session->set_flashdata('success', 'Successfully updated');
-                redirect('orders/update/'.$id, 'refresh');
+                redirect('orders/', 'refresh'); // Redirect to the "Manage Orders" page
             }
+        
             else {
                 $this->session->set_flashdata('errors', 'Error occurred!!');
                 redirect('orders/update/'.$id, 'refresh');
@@ -277,6 +286,7 @@ class Orders extends Admin_Controller
 
         echo json_encode($response); 
     }
+    
 
     /*
     * It gets the product id and fetch the order data. 

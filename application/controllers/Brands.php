@@ -13,6 +13,8 @@ class Brands extends Admin_Controller
 		$this->data['page_title'] = 'Brands';
 
 		$this->load->model('model_brands');
+		$this->load->model('model_stores');
+		// $this->load->model('model_orders');
 	}
 
 	/* 
@@ -25,6 +27,9 @@ class Brands extends Admin_Controller
 		}
 
 		$result = $this->model_brands->getBrandData();
+		// $result = $this->model_orders->getOrdersData();
+		// $this->data['orders'] = $this->model_orders->getOrdersData();
+		$this->data['stores'] = $this->model_stores->getStoresData();
 
 		$this->data['results'] = $result;
 
@@ -40,6 +45,7 @@ class Brands extends Admin_Controller
 		$result = array('data' => array());
 
 		$data = $this->model_brands->getBrandData();
+		
 		foreach ($data as $key => $value) {
 
 			// button
@@ -55,8 +61,12 @@ class Brands extends Admin_Controller
 			}				
 
 			$status = ($value['active'] == 1) ? '<span class="label label-success">Active</span>' : '<span class="label label-warning">Inactive</span>';
+			$wasteCreatedDate = date("d-m-Y", strtotime($value['waste_created_date'])); // Assuming 'stock_created_date' is the field name in the database that stores the stock created date.
 
 			$result['data'][$key] = array(
+				// $value['order_id'],
+				// $value['name'],
+				$wasteCreatedDate,
 				$value['name'],
 				$value['qty'],
 				$status,
@@ -97,14 +107,18 @@ class Brands extends Admin_Controller
 
 		$response = array();
 
-		$this->form_validation->set_rules('brand_name', 'Brand name', 'trim|required');
+		// $this->form_validation->set_rules('brand_name', 'Brand name', 'trim|required');
 		$this->form_validation->set_rules('active', 'Active', 'trim|required');
 
 		$this->form_validation->set_error_delimiters('<p class="text-danger">','</p>');
 
         if ($this->form_validation->run() == TRUE) {
         	$data = array(
-        		'name' => $this->input->post('brand_name'),
+				'waste_created_date' => date("Y-m-d "),
+
+				'name' => $this->input->post('store_name'),
+				// 'order_id' => $this->input->post('order_id'),
+        		// 'name' => $this->input->post('brand_name'),
 				'qty' => $this->input->post('qty'),
         		'active' => $this->input->post('active')	
         	);
@@ -144,14 +158,17 @@ class Brands extends Admin_Controller
 		$response = array();
 
 		if($id) {
-			$this->form_validation->set_rules('edit_brand_name', 'Brand name', 'trim|required');
+			// $this->form_validation->set_rules('edit_brand_name', 'Brand name', 'trim|required');
 			$this->form_validation->set_rules('edit_active', 'Active', 'trim|required');
 
 			$this->form_validation->set_error_delimiters('<p class="text-danger">','</p>');
 
 	        if ($this->form_validation->run() == TRUE) {
 	        	$data = array(
-	        		'name' => $this->input->post('edit_brand_name'),
+					// 'order_id' => $this->input->post('edit_order_id'),
+					'waste_created_date' => date("Y-m-d "),
+
+					'name' => $this->input->post('edit_store_name'),	        		// 'name' => $this->input->post('edit_brand_name'),
 					'qty' => $this->input->post('edit_qty'),
 	        		'active' => $this->input->post('edit_active')	
 	        	);

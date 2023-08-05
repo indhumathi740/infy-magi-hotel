@@ -1,4 +1,9 @@
-
+<style>
+  .categbtn{
+    display: flex;
+    justify-content: end;
+  }
+</style>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -42,7 +47,7 @@
         <?php endif; ?>
 
         <?php //if(in_array('createGroup', $user_permission)): ?>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add Value</button>
+          <div class="catebtn"><button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add Value</button></div>
           <br /> <br />
         <?php //endif; ?>
 
@@ -85,7 +90,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <div class="categbtn"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
         <h4 class="modal-title">Add categories Value</h4>
       </div>
 

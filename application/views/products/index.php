@@ -1,4 +1,9 @@
-
+<style>
+  .productbtn{
+    display: flex;
+    justify-content: end;
+  }
+</style>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -35,7 +40,7 @@
         <?php endif; ?>
 
         <?php if(in_array('createProduct', $user_permission)): ?>
-          <a href="<?php echo base_url('products/create') ?>" class="btn btn-primary">Add Product</a>
+          <div class="productbtn"><a href="<?php echo base_url('products/create') ?>" class="btn btn-primary">Add Product</a></div>
           <br /> <br />
         <?php endif; ?>
 

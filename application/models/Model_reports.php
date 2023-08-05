@@ -6,6 +6,24 @@ class Model_reports extends CI_Model
 	{
 		parent::__construct();
 	}
+	// Method to get the stock quantity for a given product name from the 'brands' table
+    public function getStockQuantity($product_name)
+    {
+        $query = $this->db->get_where('brands', array('name' => $product_name));
+        $result = $query->row_array();
+
+        // Return the stock quantity if the product is found in the 'brands' table
+        return ($result) ? $result['qty'] : 0;
+    }
+	// Method to get the waste quantity for a given product name from the 'category' table
+    public function getWasteQuantity($product_name)
+    {
+        $query = $this->db->get_where('category', array('name' => $product_name));
+        $result = $query->row_array();
+
+        // Return the waste quantity if the product is found in the 'category' table
+        return ($result) ? $result['qty'] : 0;
+    }
 
 	/*getting the total months*/
 	private function months()
